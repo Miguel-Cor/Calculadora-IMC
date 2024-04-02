@@ -26,19 +26,25 @@ String imageUrlScales ='https://cdn-icons-png.flaticon.com/512/1668/1668541.png'
   Widget build(BuildContext context) {
     
     return Scaffold(
-      
+      appBar: AppBar(automaticallyImplyLeading : false,leading:    GestureDetector(onTap: (){
+                                Navigator.pop(context );    
+                                },  child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal:  8.0),
+                                  child: Text('⬅',style: TextStyle(fontSize:50,color: Colors.black, ),),
+                                )),),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical:  60.0, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Column(
             crossAxisAlignment : CrossAxisAlignment.end,
             children: [
+            SizedBox(height: 80,),
               Image.network(
               imageUrlScales, // URL da imagem
                width: 180, // Largura da imagem
                height: 180, // Altura da imagem
                       ),
-             const SizedBox(height: 180,),
+              SizedBox(height: 20,),
              SizedBox(
               width:180,
               height: 100,
@@ -61,23 +67,23 @@ String imageUrlScales ='https://cdn-icons-png.flaticon.com/512/1668/1668541.png'
                   labelStyle: Theme.of(context).textTheme.headlineMedium, )
                 ),
               ),
-              const SizedBox(height: 94,),
+              
           
               ElevatedButton(
               onPressed: () {
-
+        
                  double weight = double.parse(weightController.text);
                   double height = double.parse(heightController.text);
                   double imc = weight / (height * height);
-
+        
               print('seu imc=$imc');
-
+        
                       Navigator.push(
                 context,
                   MaterialPageRoute(builder: (context) =>  ImcView(user: User(idade: widget.user.idade,altura:height,peso: weight,imc: imc.round().toDouble() ),),
                 ),);
                 
-
+        
                
               },
               style: ElevatedButton.styleFrom(
@@ -92,15 +98,10 @@ String imageUrlScales ='https://cdn-icons-png.flaticon.com/512/1668/1668541.png'
             
               child: const Text('Carregar',style: TextStyle(fontSize:20,color: Colors.white),),
             ),
-
-            IconButton(onPressed: (){
-  Navigator.pop(
-   context 
-  );
-}, 
-icon: Icon(Icons.arrow_back)
-),
+        
           
+        
+             
             ],
           ),
         ),

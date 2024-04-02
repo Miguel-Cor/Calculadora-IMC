@@ -1,6 +1,7 @@
 import 'package:calculadora_imc/calculator_view.dart';
 import 'package:calculadora_imc/user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class OldScreen extends StatefulWidget{
   const OldScreen({super.key, required String title});
@@ -71,12 +72,11 @@ class _OldScreenState extends State<OldScreen> {
                 child: const Text('Pronto',style: TextStyle(fontSize:20,color: Colors.white),),
                 ),
 
-              IconButton(onPressed: (){
-                              Navigator.pop(context );    
-                              }, 
-                          icon: const Icon(Icons.arrow_back,size: 50,)
-                                ),
+                SizedBox(height:30,),
 
+              GestureDetector(onTap: (){
+                                Navigator.pop(context );    
+                                },  child: Text('⬅',style: TextStyle(fontSize:50,color: Colors.black, ),)),
             ],
           ),
             ),

@@ -1,9 +1,9 @@
-import 'package:calculadora_imc/calculator_view.dart';
+
 import 'package:calculadora_imc/old_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget{
-  const HomeView({super.key});
+  const HomeView({super.key, });
 
   @override
   State<HomeView> createState() => _HomeViewState();

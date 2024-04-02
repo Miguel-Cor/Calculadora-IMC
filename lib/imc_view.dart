@@ -1,7 +1,9 @@
 import 'dart:js';
 
+import 'package:calculadora_imc/home_view.dart';
 import 'package:calculadora_imc/user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ImcView extends StatefulWidget {
   const ImcView({super.key, required this.user});
@@ -34,13 +36,19 @@ class __ImcViewStateState extends State<ImcView> {
     fontSize: 40,
       ),),
 
-IconButton(onPressed: (){
-  Navigator.pop(
-   context 
-  );
-}, 
-icon: Icon(Icons.arrow_back)
-),
+  SizedBox(height:30,),
+
+             GestureDetector(
+                onTap: (){
+                                      Navigator.push(
+                context,
+                  MaterialPageRoute(builder: (context) =>  HomeView()));
+               
+                                }, 
+                         
+                child: Text('⬅',style: TextStyle(fontSize:50,color: Colors.black, ),)
+              
+              ),
 
       ],)
   )
